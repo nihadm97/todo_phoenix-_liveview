@@ -1,13 +1,13 @@
 <section class="todoapp">
   <header class="header">
-  	<h1>Todos</h1>
+  	<h1>TODOS</h1>
     <form phx-submit="create" id="form">
       <input
         id="new_todo"
         class="new-todo"
         type="text"
         name="text"
-        placeholder="What needs to be done?"
+        placeholder="Šta treba uraditi?"
         autofocus=""
         required="required"
       />
@@ -15,7 +15,6 @@
   </header>
   <section class="main" style="display: block;">
   	<input id="toggle-all" class="toggle-all" type="checkbox">
-  	<label for="toggle-all">Mark all as complete</label>
   	<ul class="todo-list">
       <%= for item <- @items do %>
       <li data-id={item.id} class={completed?(item)}>
@@ -39,23 +38,11 @@
         <%= Enum.count(Enum.filter(@items, fn i -> i.status != 1 end)) %>
       </strong>
       <%= if Enum.count(Enum.filter(@items, fn i -> i.status != 1 end)) == 1 do %>
-        item
+        neurađenih
       <% else %>
-        items
+        neurađenih
       <% end %>
-      left</span>
-  	<ul class="filters">
-  		<li>
-  			<a href="#/" class="selected">All</a>
-  		</li>
-  		<li>
-  			<a href="#/active">Active</a>
-  		</li>
-  		<li>
-  			<a href="#/completed">Completed</a>
-  		</li>
-  	</ul>
-  	<button class="clear-completed" style="display: block;">Clear completed</button>
+      zadataka</span>
   </footer>
   <% end %>
 </section>
